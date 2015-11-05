@@ -1,0 +1,17 @@
+.grid li {
+    position: relative;
+    float: left;
+    width: calc(33.33% - 20px);
+    background: lightgrey;
+    margin: 10px;
+
+    list-style: none;
+}
+
+.grid li:nth-child(3n+1):last-child {
+    width: calc(100% - 20px);
+}
+
+.grid li:nth-child(3n+2):last-child {
+    width: calc(66.66% - 20px);
+}

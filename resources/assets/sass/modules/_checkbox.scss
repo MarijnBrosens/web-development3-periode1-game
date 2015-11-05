@@ -1,0 +1,60 @@
+* {
+    box-sizing: content-box;
+}
+
+label {
+    display: block;
+    position: relative;
+    line-height: 28px;
+    font-weight: normal;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+label:last-of-type { margin-right: 1rem; }
+
+label i {
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    top: 6px;
+    font-style: normal;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+label span {
+    display: inline-block;
+    line-height: 25px;
+}
+
+input[type="checkbox"] { display: none; }
+
+.icon-overlay-0,
+.icon-overlay-1{
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: .3s;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+.icon-overlay-0{ transform: scale(1); }
+.icon-overlay-1{ transform: scale(1); }
+
+label:hover .icon-overlay {
+    &-0,
+    &-1 {
+        opacity: 1;
+    }
+
+    &-0 {
+        transform: scale(1);
+        color: lighten($pink, 10%);
+    }
+    &-1 {
+        transform: scale(1);
+        color: #D6F2FD;
+    }
+}

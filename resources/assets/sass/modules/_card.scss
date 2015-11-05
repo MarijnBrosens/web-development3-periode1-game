@@ -1,0 +1,25 @@
+.card{
+
+    overflow: hidden;
+    height: 400px;
+
+    & > img {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        opacity: 0.5;
+    }
+
+    .info{
+        position: absolute;
+        top: 0;
+        z-index: 5;
+    }
+}
+
+i.ion-ios-heart,
+i.ion-ios-heart-outline{
+    color: $pink;
+    font-size: 3em;
+}
