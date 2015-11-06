@@ -170,15 +170,23 @@ class PhotosController extends Controller
 
     public function getPhotos( $partial )
     {
-        $period = Period::Active()->firstOrFail();
-        $photos = Photo::WithVotes()->groupBy('photos.id')->where('period_id','=', $period->id)->get();
+        $period = Period::Active()->first();
+        $pastPeriod = Period::Past()->get();
+        $nextPeriod = Period::Future()->first();
 
-        if($partial == 1)
-        {
-            return (String)view('partials.photos', array('photos' => $photos));
+        if($period){
+            $photos = Photo::WithVotes()->groupBy('photos.id')->where('period_id','=', $period->id)->get();
+
+            if($partial == 1)
+            {
+                return (String)view('partials.photos', array('photos' => $photos));
+            }
+
+            return view('home.index', array('photos' => $photos,'period' => $period,'pastPeriod' => $pastPeriod,'nextPeriod' => $nextPeriod));
+        } else {
+            return view('home.index', array('period' => $period,'pastPeriod' => $pastPeriod,'nextPeriod' => $nextPeriod));
         }
 
-        return view('home.index', array('photos' => $photos,'period' => $period));
 /*
         if(Auth::user())
         {
