@@ -45,4 +45,14 @@ class User extends Model implements AuthenticatableContract,
     public function votes(){
         return $this->hasMany('App\Vote');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Roles');
+    }
+
+    public function isAnAdmin()
+    {
+        return false;
+    }
 }

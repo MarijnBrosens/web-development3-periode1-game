@@ -35,10 +35,14 @@ Route::get('/winners', 'WinnersController@index');
 #region AUTHORIZED ROUTES
 Route::group(['middleware' => 'auth'], function()
 {
-    Route::get('/users', 'UsersController@index');
-    Route::post('/users/delete','UsersController@destroy');
     Route::post('/votes', 'PhotosController@postVote');
 
     Route::post('/create', ['as' => 'upload_photo', 'uses' => 'PhotosController@postPhoto']);
     Route::get('/profile', 'ProfileController@index');
+});
+
+Route::group(['middleware' => 'admin'], function()
+{
+    Route::get('/users', 'UsersController@index');
+    Route::post('/users/delete','UsersController@destroy');
 });
