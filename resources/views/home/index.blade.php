@@ -14,7 +14,7 @@
 
         @if($period)
 
-            <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="end-time"></time></h1>
+            <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="date-h"></time></h1>
 
             @include('partials/upload')
 
@@ -23,7 +23,7 @@
             <h3>No active period available</h3>
             @if($nextPeriod)
 
-                <h3>{{$nextPeriod->title}} wil start <time datetime="{{$nextPeriod->start_date}}" class="counter"></time></h3>
+                <h3>{{$nextPeriod->title}} wil start <time datetime="{{$nextPeriod->start_date}}" class="date-h"></time></h3>
 
             @endif
 
