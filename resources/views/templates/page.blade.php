@@ -9,6 +9,8 @@
 </head>
 <body>
 
+
+@include('partials.nav')
     <div
         class="parallax-image-wrapper parallax-image-wrapper-100"
         data-anchor-target="#dragons + .gap"

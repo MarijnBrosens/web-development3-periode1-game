@@ -29,7 +29,7 @@
 <header class="header" id="dragons">
 
     <div class="content">
-        @include('partials.nav')
+
         <H1>TAKE A PICTURE OF YOUR OLD CAR AND WIN A BRAND NEW TESLA MODEL X</H1>
 
         <h1>password123</h1>
