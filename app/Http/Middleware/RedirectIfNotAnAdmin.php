@@ -3,9 +3,28 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 
 class RedirectIfNotAnAdmin
 {
+    /**
+     * The Guard implementation.
+     *
+     * @var Guard
+     */
+    protected $auth;
+
+    /**
+     * Create a new filter instance.
+     *
+     * @param  Guard  $auth
+     * @return void
+     */
+    public function __construct(Guard $auth)
+    {
+        $this->auth = $auth;
+    }
+
     /**
      * Handle an incoming request.
      *
@@ -15,11 +34,17 @@ class RedirectIfNotAnAdmin
      */
     public function handle($request, Closure $next)
     {
-        if( ! $request->user()->isAnAdmin())
+        if ($this->auth->check())
         {
-            return redirect('/');
+            if ($request->user()->isAnAdmin())
+            {
+                return $next($request);
+            }
+
         }
 
-        return $next($request);
+        return redirect('/');
+
+
     }
 }

@@ -33,7 +33,7 @@ Route::post('/register', 'Auth\AuthController@postRegister');
 Route::get('/winners', 'WinnersController@index');
 
 #region AUTHORIZED ROUTES
-Route::group(['middleware' => 'auth'], function()
+Route::group( ['middleware' => 'auth'] , function()
 {
     Route::post('/votes', 'PhotosController@postVote');
 
@@ -41,8 +41,7 @@ Route::group(['middleware' => 'auth'], function()
     Route::get('/profile', 'ProfileController@index');
 });
 
-Route::group(['middleware' => 'admin'], function()
+Route::group( ['middleware' => 'admin'] , function()
 {
-    Route::get('/users', 'UsersController@index');
-    Route::post('/users/delete','UsersController@destroy');
+    Route::resource( '/admin/users', 'UsersController', ['only' => ['index','destroy']] );
 });

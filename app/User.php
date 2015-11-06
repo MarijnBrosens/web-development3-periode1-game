@@ -51,11 +51,13 @@ class User extends Model implements AuthenticatableContract,
     {
         $user = Auth::user();
 
-        $userRole =  $this->join('role_user','role_user.user_id', '=','users.id')->where('user_id',$user->id)->first();
+        $userRole =  $this->join( 'role_user', 'role_user.user_id', '=', 'users.id' )->where( 'user_id', $user->id )->first();
 
-        if($userRole->role_id == 1 )
-        {
-            return true;
+        if ( ! is_null( $userRole ) ) {
+            if($userRole->role_id == 1 )
+            {
+                return true;
+            }
         }
 
         return false;
