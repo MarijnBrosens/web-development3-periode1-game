@@ -4,48 +4,34 @@
 
 @section('content')
 
+    <h1>ONE PLUS smah your old phone</h1>
+
     <h1>LARACAST vanaf 14 verder kijken</h1>
+
+
 
     @if(Auth::check())
 
+        @if($period)
 
-        <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="counter"></time></h1>
-        <time datetime="{{$period->end_date}}" class="end-date"></time>
+            <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="counter"></time></h1>
+            <time datetime="{{$period->end_date}}" class="end-date"></time>
 
 
-        <time datetime="{{$period->end_date}}" class="countdown end-date"></time>
+            <time datetime="{{$period->end_date}}" class="countdown end-date"></time>
 
-        <h1>DROPZONE</h1>
+            @include('partials/upload')
 
-        @include('partials/errors');
+        @else
 
-        <div class="animated-form">
-            <div class="container">
-                {!! Form::open(['route' => 'upload_photo', 'files' => true]) !!}
-                {!! csrf_field() !!}
+            <h3>No active period available</h3>
+            @if($nextPeriod)
 
-                <div class="input-group-lines">
-                    {!! Form::text('title') !!}
-                    {!! Form::label('title', 'Titel') !!}
-                </div>
+                <h3>{{$nextPeriod->title}} wil start <time datetime="{{$nextPeriod->start_date}}" class="counter"></time></h3>
 
-                <div class="input-group-lines">
-                    {!! Form::text('content') !!}
-                    {!! Form::label('content', 'content') !!}
-                </div>
+            @endif
 
-                <div class="input-group-lines">
-                    {!! Form::file('image') !!}
-                    {!! Form::label('image', 'Image') !!}
-                </div>
-
-                <div class="input-group-lines">
-                    {!! Form::submit('Add image') !!}
-                </div>
-
-                {!! Form::close() !!}
-            </div>
-        </div>
+        @endif
 
     @else
 
@@ -53,7 +39,7 @@
 
     @endif
 
-    <h1>periode counter : periode expires in 3days and 30 minutes</h1>
+
     <h1>validatie in controller van request</h1>
 
     <ul>
@@ -72,12 +58,29 @@
         <li>betere period check -> als er geen periode is</li>
     </ul>
 
-    @if(count($photos))
+    @if($period)
 
-        <div id="photos">
-            @include('partials/photos')
-        </div>
+        @if(count($photos))
+
+            <div id="photos">
+                @include('partials/photos')
+            </div>
+
+        @endif
 
     @endif
 
+    @if($pastPeriod)
+
+        <h1>Past periods</h1>
+
+        @foreach($pastPeriod as $period)
+
+            <h1>{{$period->title}}</h1>
+            <p>started: {{$period->start_date}}</p>
+            <p>ends: {{$period->end_date}}</p>
+
+        @endforeach
+
+    @endif
 @stop
