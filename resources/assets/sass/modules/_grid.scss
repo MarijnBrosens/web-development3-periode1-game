@@ -1,3 +1,8 @@
+.grid{
+    padding: 10px;
+    @extend .clearfix;
+}
+
 .grid li {
     position: relative;
     float: left;
@@ -7,6 +12,7 @@
 
     list-style: none;
 }
+/*
 
 .grid li:nth-child(3n+1):last-child {
     width: calc(100% - 20px);
@@ -15,3 +21,5 @@
 .grid li:nth-child(3n+2):last-child {
     width: calc(66.66% - 20px);
 }
+
+*/
