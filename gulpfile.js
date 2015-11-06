@@ -15,7 +15,8 @@ var paths = {
     'jquery': './vendor/bower_components/jquery/',
     'isotope': './vendor/bower_components/isotope/',
     'moment': './vendor/bower_components/moment/',
-    'bower': './vendor/bower_components/skrollr/'
+    'bower': './vendor/bower_components/skrollr/',
+    'dropzone': './resources/assets/js/plugins/'
 };
 
 elixir(function(mix) {
@@ -33,6 +34,7 @@ elixir(function(mix) {
             paths.isotope + 'dist/isotope.pkgd.min.js',
             paths.moment + 'min/moment-with-locales.min.js',
             paths.bower + 'dist/skrollr.min.js',
+            paths.dropzone + 'dropzone.js',
             'app.js'
         ],
         'public/javascripts/app.js'

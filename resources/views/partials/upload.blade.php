@@ -18,8 +18,9 @@
         </div>
 
         <div class="input-group-lines">
-            {!! Form::file('image') !!}
-            {!! Form::label('image', 'Image') !!}
+            <div id="dropzone">
+                <div>dropzone</div>
+                <input type="file" name="image" accept="image/png, image/jpg, image/gif, image/jpeg" >
         </div>
 
         <div class="input-group-lines">
