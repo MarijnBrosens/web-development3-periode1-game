@@ -11,6 +11,7 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Model implements AuthenticatableContract,
                                     AuthorizableContract,
@@ -46,13 +47,17 @@ class User extends Model implements AuthenticatableContract,
         return $this->hasMany('App\Vote');
     }
 
-    public function user()
-    {
-        return $this->belongsTo('App\Roles');
-    }
-
     public function isAnAdmin()
     {
+        $user = Auth::user();
+
+        $userRole =  $this->join('role_user','role_user.user_id', '=','users.id')->where('user_id',$user->id)->first();
+
+        if($userRole->role_id == 1 )
+        {
+            return true;
+        }
+
         return false;
     }
 }
