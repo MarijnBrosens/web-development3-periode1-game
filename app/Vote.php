@@ -12,4 +12,9 @@ class Vote extends Model
         'photo_id',
         'voted'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Photo');
+    }
 }

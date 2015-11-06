@@ -30,4 +30,8 @@ class Period extends Model
     {
         $query->where('start_date' , '>' , Carbon::now() );
     }
+
+    public function photos(){
+        return $this->hasMany('App\Photo');
+    }
 }

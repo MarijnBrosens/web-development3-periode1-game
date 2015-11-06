@@ -7,6 +7,7 @@ use App\Photo;
 use App\User;
 use App\Vote;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,14 +24,18 @@ class WinnersController extends Controller
      */
     public function index()
     {
-        $period = Period::Past()->orderBy('end_date','desc')->first();
+        $period = Period::Past()->orderBy('end_date','desc')->get();
 
-        $votes = Photo::leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
+
+        $votes = User::join('photos','photos.user_id','=','users.id')
+            ->join( 'votes', 'votes.photo_id', '=', 'photos.id' )
+            ->join( 'periods', 'periods.id', '=','photos.period_id')
             ->select(
-                'photos.*',
-                DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count'),
-                'votes.voted'
+                'photos.period_id',
+                'users.*',
+                DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count')
             )
+            ->where('end_date','<',Carbon::now())
             ->orderBy('vote_count','desc')
             ->get();
 
