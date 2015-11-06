@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class WinnersController extends Controller
@@ -24,10 +25,15 @@ class WinnersController extends Controller
      */
     public function index()
     {
-        $period = Period::Past()->orderBy('end_date','desc')->get();
 
 
-        $votes = User::join('photos','photos.user_id','=','users.id')
+        $userVotes = Auth::user()->votes()->where('voted','=',1)->get()->toArray();
+        $photo = Photo::first()->votes->toArray();
+
+        dd($userVotes);
+        //dd($photo[0]['id']);
+
+        /*$votes = User::join('photos','photos.user_id','=','users.id')
             ->join( 'votes', 'votes.photo_id', '=', 'photos.id' )
             ->join( 'periods', 'periods.id', '=','photos.period_id')
             ->select(
@@ -40,6 +46,7 @@ class WinnersController extends Controller
             ->get();
 
         dd($votes , $period);
+        */
     }
 
     /**

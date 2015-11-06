@@ -34,5 +34,11 @@ jQuery(document).ready(function($) {
 
     });
 
+    // initialize SKROLLR
+    skrollr.init({
+        smoothScrolling: false,
+        mobileDeceleration: 0.004
+    });
 
 });
+
