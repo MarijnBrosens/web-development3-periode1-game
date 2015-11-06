@@ -9308,12 +9308,12 @@ llll:"ddd, D MMM YYYY HH:mm"},calendar:{sameDay:"[Hôm nay lúc] LT",nextDay:"[N
 
     // initialize MOMENTJS
     var now = moment();
-    $('time.counter').each(function (i, e) {
+    $('time.end-time').each(function (i, e) {
 
         var date = new Date($(e).attr('datetime')).getTime();
         var time = moment($(e).attr('datetime')).locale("en");
 
-        $(e).html('<span>' + time.from(now) + '</span>');
+        $(e).html('<span>' + time.format('MMMM Do YYYY, h a') + '</span>');
     });
 
     $('time.date').each(function (i, e) {
@@ -9321,21 +9321,6 @@ llll:"ddd, D MMM YYYY HH:mm"},calendar:{sameDay:"[Hôm nay lúc] LT",nextDay:"[N
         $(e).html('<span>' + time.format('MMMM Do YYYY, h:mm:ss a') + '</span>');
     });
 
-    $('time.countdown').each(function(i,e){
-        var end = moment($(e).attr('datetime'));
-        var eventTime= new Date(end).getTime(); // Timestamp - Sun, 21 Apr 2013 13:00:00 GMT
-        var currentTime = new Date(moment()).getTime(); // Timestamp - Sun, 21 Apr 2013 12:30:00 GMT
-        var diffTime = eventTime - currentTime;
-        var duration = moment.duration(diffTime*1000, 'milliseconds');
-        var interval = 1000;
-
-        console.log('event:' + eventTime + ' --- current:' + currentTime + ' --- difftime:' + diffTime);
-
-        setInterval(function(){
-            duration = moment.duration(duration - interval, 'milliseconds').locale("en");
-            $(e).html('<span>' + duration.hours() + ":" + duration.minutes() + ":" + duration.seconds() + '</span>');
-        }, interval);
-    });
 
 
     // init isotope

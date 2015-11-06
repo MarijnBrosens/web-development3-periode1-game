@@ -14,11 +14,7 @@
 
         @if($period)
 
-            <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="counter"></time></h1>
-            <time datetime="{{$period->end_date}}" class="end-date"></time>
-
-
-            <time datetime="{{$period->end_date}}" class="countdown end-date"></time>
+            <h1>{{$period->title}} ends <time datetime="{{$period->end_date}}" class="end-time"></time></h1>
 
             @include('partials/upload')
 
