@@ -17,7 +17,7 @@
                 <td>{{$user->city}}</td>
                 <td>{{$user->ip}}</td>
                 <td>
-                    {!! Form::open(array('url' => 'users/delete')) !!}
+                    {!! Form::open(array('url' => 'admin/users/delete', 'method' => 'delete')) !!}
                     {!! csrf_field() !!}
                     {!! Form::hidden('id',$user->id) !!}
                     {!! Form::submit('Delete') !!}
