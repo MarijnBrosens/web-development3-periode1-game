@@ -1,6 +1,4 @@
-<h1>DROPZONE</h1>
-
-@include('partials/errors');
+@include('partials/errors')
 
 <div class="animated-form">
     <div class="container">
@@ -8,20 +6,20 @@
         {!! csrf_field() !!}
 
         <div class="input-group-lines">
-            {!! Form::text('title') !!}
-            {!! Form::label('title', 'Titel') !!}
-        </div>
-
-        <div class="input-group-lines">
-            {!! Form::text('content') !!}
-            {!! Form::label('content', 'content') !!}
-        </div>
-
-        <div class="input-group-lines">
             <div id="dropzone">
-                <div>dropzone</div>
+                <div><h2><i class="ion-ios-camera-outline"></i></h2></div>
                 <input type="file" name="image" accept="image/png, image/jpg, image/gif, image/jpeg" >
         </div>
+
+            <div class="input-group-lines">
+                {!! Form::text('title') !!}
+                {!! Form::label('title', 'Titel') !!}
+            </div>
+
+            <div class="input-group-lines">
+                {!! Form::text('content') !!}
+                {!! Form::label('content', 'content') !!}
+            </div>
 
         <div class="input-group-lines">
             {!! Form::submit('Add image') !!}
@@ -30,3 +28,4 @@
         {!! Form::close() !!}
     </div>
 </div>
+    </div>

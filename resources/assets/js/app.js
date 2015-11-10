@@ -34,10 +34,18 @@ jQuery(document).ready(function($) {
 
     });
 
-    // initialize SKROLLR
-    skrollr.init({
-        smoothScrolling: false,
-        mobileDeceleration: 0.004
+
+    //  check scroll top
+    $(window).scroll(function (event) {
+        var height = $(window).height();
+        var scroll = $(window).scrollTop();
+        var nav = $('.nav');
+
+        if( scroll > ( height - 100 )  ){
+            nav.addClass('nav-scrolled');
+        } else {
+            nav.removeClass('nav-scrolled');
+        }
     });
 
 });
