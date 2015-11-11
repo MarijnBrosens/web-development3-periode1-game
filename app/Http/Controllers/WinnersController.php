@@ -27,7 +27,7 @@ class WinnersController extends Controller
     {
         //dd($photo[0]['id']);
 
-        $periods = Period::All();
+        $periods = Period::Past()->orderBy('id','desc')->get();
 
         foreach($periods as $p){
 

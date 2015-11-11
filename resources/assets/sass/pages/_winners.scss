@@ -1,0 +1,12 @@
+.thumb{
+    width: 100px;
+
+    &>img{
+        width: 100%;
+    }
+}
+
+.winner-card{
+    display: inline-block;
+    background: black;
+}
