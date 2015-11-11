@@ -77,3 +77,23 @@ input[type='submit']{
         }
     }
 }
+
+table{
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+
+    tr{ color: white; &:hover{ color: $brand-color;  background: rgba(255,255,255,.1)}}
+    td{ padding: 5px; border-bottom: 1px solid rgba(255,255,255,.3); }
+    input[type='submit']{ padding: 0; border: none; background: none; margin: 0; }
+}
+
+.pagination{
+    background: rgba(255,255,255,0.1);
+    padding: 5px 10px;
+    position: relative;
+    margin-top: 30px;
+    display: inline-block;
+
+    li{ list-style: none; float: left; padding: 7px; position: relative; }
+    a{ text-decoration: none; }
+}

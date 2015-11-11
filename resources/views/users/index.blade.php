@@ -3,30 +3,49 @@
 @section('title', 'Log in')
 
 @section('content')
+    <header class="header">
 
-    <table>
+        <div class="header--content page-info">
 
-        @foreach($users as $user)
+            <table>
 
-            <tr>
-                <td>{{$user->firstname}}</td>
-                <td>{{$user->lastname}}</td>
-                <td>{{$user->email}}</td>
-                <td>{{$user->address}}</td>
-                <td>{{$user->zip}}</td>
-                <td>{{$user->city}}</td>
-                <td>{{$user->ip}}</td>
-                <td>
-                    {!! Form::open(array('url' => 'admin/users/delete', 'method' => 'delete')) !!}
-                    {!! csrf_field() !!}
-                    {!! Form::hidden('id',$user->id) !!}
-                    {!! Form::submit('Delete') !!}
-                    {!! Form::close() !!}
-                </td>
-            </tr>
+                <tr>
+                    <th>firstname</th>
+                    <th>lastname</th>
+                    <th>email</th>
+                    <th>address</th>
+                    <th>zip</th>
+                    <th>city</th>
+                    <th>ip</th>
+                </tr>
 
-        @endforeach
+                @foreach($users as $user)
 
-    </table>
+                    <tr>
+                        <td>{{$user->firstname}}</td>
+                        <td>{{$user->lastname}}</td>
+                        <td>{{$user->email}}</td>
+                        <td>{{$user->address}}</td>
+                        <td>{{$user->zip}}</td>
+                        <td>{{$user->city}}</td>
+                        <td>{{$user->ip}}</td>
+                        <td>
+                            {!! Form::open(array('url' => 'admin/users/delete', 'method' => 'delete')) !!}
+                            {!! csrf_field() !!}
+                            {!! Form::hidden('id',$user->id) !!}
+                            {!! Form::submit('Delete') !!}
+                            {!! Form::close() !!}
+                        </td>
+                    </tr>
+
+                @endforeach
+
+            </table>
+
+            {!! $users->render() !!}
+
+        </div>
+
+    </header>
 
 @stop
