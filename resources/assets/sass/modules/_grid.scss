@@ -19,3 +19,19 @@
         width: calc(100% - 20px);
     }
 }
+
+.container{
+    max-width: 1000px;
+    width: 100%;
+}
+
+.col-1{
+    width: 48%;
+    float: left;
+    margin: 0 1%;
+    position: relative;
+
+    @media (max-width: 640px){
+        width: 98%;
+    }
+}

@@ -1,0 +1,25 @@
+.page-auth{
+    &.header--content{
+
+        h1{
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 2em;
+        }
+
+        input[type='checkbox']{
+            margin: 8px 10px 8px 0;
+            display: inline-block;
+            float: left;
+        }
+
+        .remember-label{
+            float: left;
+            display: inline-block;
+        }
+    }
+
+    input[type='submit']{
+        padding: 15px;
+    }
+}

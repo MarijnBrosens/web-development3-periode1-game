@@ -1,8 +1,8 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+@import 'tools/vars';
 @import 'tools/init';
 @import 'tools/fonts/ionicons';
-@import 'tools/vars';
 
 @import 'modules/clearfix';
 @import 'modules/header';
@@ -17,3 +17,4 @@
 
 @import 'pages/home';
 @import 'pages/info';
+@import 'pages/auth';

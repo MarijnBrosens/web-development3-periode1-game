@@ -30,6 +30,43 @@ body::before {
 body::after {
   bottom: 0; }
 
+label {
+  color: white;
+  opacity: 0.7; }
+
+input[type='text'],
+input[type='password'] {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: 0.3s;
+  box-sizing: border-box; }
+  input[type='text']:focus,
+  input[type='password']:focus {
+    border-color: white;
+    outline: 0;
+    background: rgba(255, 255, 255, 0.2); }
+
+input[type='submit'] {
+  margin-top: 15px;
+  width: 100%;
+  box-sizing: border-box; }
+
+.links {
+  margin-top: 50px;
+  text-align: center; }
+  .links a {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 5px;
+    transition: .3s; }
+    .links a:hover {
+      color: #F9BC00; }
+
 /*!
   Ionicons, v2.0.0
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -3169,6 +3206,19 @@ header {
     .grid li {
       width: calc(100% - 20px); } }
 
+.container {
+  max-width: 1000px;
+  width: 100%; }
+
+.col-1 {
+  width: 48%;
+  float: left;
+  margin: 0 1%;
+  position: relative; }
+  @media (max-width: 640px) {
+    .col-1 {
+      width: 98%; } }
+
 #photos {
   padding: 50px 0; }
   #photos h1 {
@@ -3230,24 +3280,6 @@ header {
     left: 0; }
   .dropzone-wrapper .image-info {
     float: right; }
-    .dropzone-wrapper .image-info label {
-      color: white;
-      opacity: 0.7; }
-    .dropzone-wrapper .image-info input[type='text'] {
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: white;
-      padding: 10px;
-      margin-bottom: 10px;
-      width: 100%;
-      transition: 0.3s; }
-      .dropzone-wrapper .image-info input[type='text']:focus {
-        border-color: white;
-        outline: 0;
-        background: rgba(255, 255, 255, 0.2); }
-    .dropzone-wrapper .image-info input[type='submit'] {
-      margin-top: 15px;
-      width: calc(100% - 40px); }
 
 .alert-danger {
   background: rgba(255, 0, 0, 0.7);
@@ -3403,7 +3435,10 @@ main {
   width: 100%;
   max-width: 1000px; }
   .page-info.header--content a {
-    color: white; }
+    color: white;
+    transition: .3s; }
+    .page-info.header--content a:hover {
+      color: #F9BC00; }
   .page-info.header--content h1 {
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -3412,13 +3447,22 @@ main {
   .page-info.header--content hr {
     max-width: 30px;
     margin: 20px auto; }
-  .page-info.header--content .links {
-    margin-top: 50px;
-    text-align: center; }
-    .page-info.header--content .links a {
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin: 5px; }
+
+.page-auth.header--content h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2em; }
+
+.page-auth.header--content input[type='checkbox'] {
+  margin: 8px 10px 8px 0;
+  display: inline-block;
+  float: left; }
+
+.page-auth.header--content .remember-label {
+  float: left;
+  display: inline-block; }
+
+.page-auth input[type='submit'] {
+  padding: 15px; }
 
 /*# sourceMappingURL=app.css.map */

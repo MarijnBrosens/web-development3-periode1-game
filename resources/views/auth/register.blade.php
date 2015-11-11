@@ -6,43 +6,75 @@
 
     @include('partials.errors')
 
-        <h1><a href="/login">login</a></h1>
-        <div class="container">
-            <form method="POST" action="/register">
-                {!! csrf_field() !!}
+    <header class="header">
 
-                    <input type="text" id="firstname" name="firstname" value="{{ old('firstname') }}" required autofocus>
-                    <label for="firstname">Voornaam</label>
+        <div class="header--content page-auth">
 
-                    <input type="text" id="lastname" name="lastname" value="{{ old('lastname') }}" required>
-                    <label for="lastname">Achternaam</label>
+            <h1>register</h1>
 
-                    <input type="text" id="email" name="email" value="{{ old('email') }}" required>
-                    <label for="email">E-mailadres</label>
+            <div class="container clearfix">
 
-                    <input type="password" id="password" name="password" required>
-                    <label for="password">Wachtwoord</label>
+                <form method="POST" action="/register">
+                    {!! csrf_field() !!}
 
-                    <input type="password" id="password_confirmation" name="password_confirmation" required>
-                    <label for="password_confirmation">Herhaal wachtwoord:</label>
+                    <div class="col-1">
 
-                    <input type="text" id="birthday" name="birthday" value="{{ old('birthday') }}" required>
-                    <label for="birthday">Geboortedatum</label>
+                        <div>
+                            <label for="firstname">Firstname</label>
+                            <input type="text" id="firstname" name="firstname" value="{{ old('firstname') }}" required autofocus/>
+                        </div>
 
-                    <input type="text" id="address" name="address" value="{{ old('address') }}" required>
-                    <label for="address">Adres</label>
+                        <div>
+                            <label for="lastname">Lastname</label>
+                            <input type="text" id="lastname" name="lastname" value="{{ old('lastname') }}" required/>
+                        </div>
 
-                    <input type="text" id="zip" name="zip" value="{{ old('zip') }}" required>
-                    <label for="zip">Postcode</label>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="text" id="email" name="email" value="{{ old('email') }}" required/>
+                        </div>
 
-                    <input type="text" id="city" name="city" value="{{ old('city') }}" required>
-                    <label for="city">Plaats</label>
+                        <div>
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" value="{{ old('address') }}" required/>
+                        </div>
 
-                    <div class="input-group-lines-remember">
-                    <input type="submit" value="Registreer">
-                </div>
-            </form>
+                    </div>
+                    <div class="col-1">
+                        <div>
+                            <label for="zip">Zip</label>
+                            <input type="text" id="zip" name="zip" value="{{ old('zip') }}" required/>
+                        </div>
+
+                        <div>
+                            <label for="city">City</label>
+                            <input type="text" id="city" name="city" value="{{ old('city') }}" required/>
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required/>
+                        </div>
+
+                        <div>
+                            <label for="password_confirmation">Repeat password</label>
+                            <input type="password" id="password_confirmation" name="password_confirmation" required/>
+                        </div>
+
+                        <div>
+                            <input type="submit" value="register">
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div class="links">
+                <a href="/login">login</a>
+            </div>
 
         </div>
+    </header>
 
 @endsection
