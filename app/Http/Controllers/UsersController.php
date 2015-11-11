@@ -24,7 +24,7 @@ class UsersController extends Controller
 
         return view('users.index', ['users' => $users]);
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
