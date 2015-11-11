@@ -21,5 +21,5 @@ class InfoController extends Controller
 
         return view('info.index', array('period' => $period));
     }
-    
+
 }
