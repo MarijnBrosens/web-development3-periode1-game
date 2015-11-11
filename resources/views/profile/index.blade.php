@@ -7,11 +7,14 @@
     <header class="header">
 
         <div class="header--content">
-
             <h1>{{$user->firstname}} {{$user->lastname}}</h1>
             <p>{{$user->email}}</p>
             <p>{{$user->address}} - {{$user->zip}} {{$user->city}}</p>
+        </div>
 
+        <div class="arrow">
+            <span>scroll</span>
+            <i class="ion-ios-arrow-down"></i>
         </div>
 
     </header>
@@ -19,7 +22,6 @@
     <main>
 
         @if(count($photos))
-
 
             <h1 class="period-title">my photos</h1>
 
@@ -50,6 +52,5 @@
         @endif
 
     </main>
-
-
+    
 @stop

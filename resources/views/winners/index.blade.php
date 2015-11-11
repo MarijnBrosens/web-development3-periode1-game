@@ -6,11 +6,7 @@
     <header class="header">
 
         <div class="header--content page-winners">
-
-
             <h1>Winners</h1>
-
-
         </div>
         <div class="arrow">
             <span>scroll</span>
