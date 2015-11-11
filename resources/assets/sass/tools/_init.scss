@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic);
 
-
 ::-moz-selection { background: #ddd; }
 ::selection { background: #ddd; }
 
@@ -8,13 +7,11 @@
     padding:0;
     margin:0;
 }
+
 html, body {
     height:100%;
-    background: #e2e2e2;
+    background: white;
     font-family: 'Karla', sans-serif;
-}
-.skrollr-desktop body {
-    height:100% !important;
 }
 
 body::before, body::after {
@@ -26,9 +23,11 @@ body::before, body::after {
     height: 3px;
     z-index: 10;
 }
+
 body::before {
     top: 0;
 }
+
 body::after {
     bottom: 0;
 }

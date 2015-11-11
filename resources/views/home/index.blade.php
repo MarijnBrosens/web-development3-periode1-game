@@ -12,9 +12,9 @@
 
             @if(count($photos))
 
-                <div id="photos">
+                <h1 class="period-title">{{$period->title}}</h1>
 
-                    <h1>{{$period->title}}</h1>
+                <div id="photos">
 
                     @include('partials/photos')
 

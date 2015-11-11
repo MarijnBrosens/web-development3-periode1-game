@@ -1,32 +1,62 @@
 .card{
 
-    overflow: hidden;
-    height: 400px;
-
     & > img {
         width: 100%;
         padding: 0;
         margin: 0;
     }
 
-    .ajax,
-    .info{
+    .overlay{
+        bottom: 0;
         position: absolute;
-        top: 0;
-        z-index: 5;
         width: 100%;
         height: 100%;
+        box-sizing: border-box;
+        background-image: url("../img/overlay.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left bottom;
+        z-index: 0;
+    }
+
+    .info{
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+
+        h3{ background: white; font-size: 1em; }
+        p{ background: white; display: inline-block; color: #777; font-size: 0.8em; }
 
         label{
-            width: 100%;
             height: 100%;
             position: absolute;
+        }
+    }
+
+    .like{
+        position: absolute;
+        right: 30px;
+        bottom: 30px;
+
+        .vote-count{
+            position: absolute;
+            top: 0;
+            left: 100%;
+            color: $brand-color;
+            font-weight: bold;
+        }
+
+        .ajax{
+            width: 60px;
+            height: 50px;
+            overflow: hidden;
+            position: relative;
         }
     }
 }
 
 i.ion-ios-heart,
 i.ion-ios-heart-outline{
-    color: $pink;
+    color: $brand-color;
     font-size: 3em;
 }
