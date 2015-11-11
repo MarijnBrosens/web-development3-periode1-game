@@ -3,10 +3,6 @@
     <li><a href="/winners">Winners</a></li>
     <li><a href="/info">Info</a></li>
 
-    <li><a href="/periods">All periods</a></li>
-    <li><a href="/periods/active">Active period</a></li>
-    <li><a href="/periods/future">Future periods</a></li>
-
     @if(Auth::check())
 
         @if(Auth::user()->isAnAdmin())

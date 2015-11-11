@@ -14,9 +14,13 @@
 #region PUBLIC ROUTES
 Route::get('/', 'PhotosController@index');
 
-Route::get('/periods', 'PeriodsController@index');
-Route::get('/periods/active', 'PeriodsController@active');
-Route::get('/periods/future', 'PeriodsController@future');
+Route::get('/info', 'InfoController@index');
+Route::get('/info/periods', 'PeriodsController@index');
+Route::get('/info/periods/future', 'PeriodsController@future');
+
+
+Route::get('/winners', 'WinnersController@index');
+
 
 // Authentication routes
 Route::get('/login', 'Auth\AuthController@getLogin');
@@ -28,9 +32,6 @@ Route::get('/logout', 'Auth\AuthController@getLogout');
 Route::get('/register', 'Auth\AuthController@getRegister');
 Route::post('/register', 'Auth\AuthController@postRegister');
 #endregion
-
-
-Route::get('/winners', 'WinnersController@index');
 
 #region AUTHORIZED ROUTES
 Route::group( ['middleware' => 'auth'] , function()

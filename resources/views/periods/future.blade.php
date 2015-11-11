@@ -21,7 +21,7 @@
 
             @else
 
-                <h1>no periods avilable</h1>
+                <h1>no future periods avilable</h1>
 
             @endif
 
@@ -30,7 +30,6 @@
             </div>
 
         </div>
-
 
     </header>
 

@@ -3399,4 +3399,26 @@ main {
   letter-spacing: 6px;
   color: #777; }
 
+.page-info.header--content {
+  width: 100%;
+  max-width: 1000px; }
+  .page-info.header--content a {
+    color: white; }
+  .page-info.header--content h1 {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 2em;
+    margin-top: 30px; }
+  .page-info.header--content hr {
+    max-width: 30px;
+    margin: 20px auto; }
+  .page-info.header--content .links {
+    margin-top: 50px;
+    text-align: center; }
+    .page-info.header--content .links a {
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin: 5px; }
+
 /*# sourceMappingURL=app.css.map */

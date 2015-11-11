@@ -34,7 +34,7 @@ class PeriodsController extends Controller
     {
         $periods = Period::Future()->get();
 
-        return view('periods.index', array('periods' => $periods));
+        return view('periods.future', array('periods' => $periods));
     }
 
     /**

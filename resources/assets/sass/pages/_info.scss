@@ -1,0 +1,23 @@
+.page-info{
+    &.header--content{
+        width: 100%;
+        max-width: 1000px;
+
+        a{ color: white; }
+
+        h1{ text-transform: uppercase; letter-spacing: 3px; font-size: 2em; margin-top: 30px; }
+        hr{ max-width: 30px; margin: 20px auto; }
+
+        .links{
+            margin-top: 50px;
+            text-align: center;
+
+            a{
+                color: white;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                margin: 5px;
+            }
+        }
+    }
+}
