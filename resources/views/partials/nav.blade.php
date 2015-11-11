@@ -10,9 +10,9 @@
     @if(Auth::check())
 
         @if(Auth::user()->isAnAdmin())
-            <li><a href="/admin/users">users</a></li>
+            <li><a href="/admin/users">Users</a></li>
         @endif
-    
+
         <li><a href="/profile">Welkom {{Auth::user()->firstname}} {{Auth::user()->lastname}}</a></li>
         <li><a href="/logout">Logout</a></li>
 

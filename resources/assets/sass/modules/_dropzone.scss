@@ -1,47 +1,94 @@
-#dropzone {
-    position: relative;
-    border: 3px dotted #FFF;
-    border-radius: 10px;
-    color: white;
-    font: bold 24px/200px arial;
-    height: 200px;
+.dropzone-wrapper{
+
+    width: 500px;
     margin: 30px auto;
-    text-align: center;
-    width: 200px;
-}
 
-#dropzone.hover {
-    border: 3px solid $brand-color;
-    color: $brand-color;
-    background: rgba(0,0,0,.3);
-}
+    #dropzone {
+        position: relative;
+        border: 3px dotted #FFF;
+        border-radius: 10px;
+        color: white;
+        font: bold 24px/250px arial;
+        height: 250px;
+        text-align: center;
+        width: 250px;
+        transform: scale(1);
+        transition: .5s;
+        float: left;
+    }
 
-#dropzone.dropped {
-    background: #222;
-    border: 10px solid #444;
-}
+    #dropzone:hover,
+    #dropzone.hover {
+        color: $brand-color;
+        border-color: $brand-color;
+        background: rgba(0,0,0,.3);
+        transform: scale(1.1);
+    }
 
-#dropzone div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-}
+    #dropzone.dropped {
+        background: rgba(0,0,0,.7);
+        border: 3px solid black;
+        margin: 30px 0 30px;
+        float: left;
 
-#dropzone img {
-    border-radius: 10px;
-    vertical-align: middle;
-    max-width: 95%;
-    max-height: 95%;
-}
+        &:hover{ transform: scale(1); }
+    }
 
-#dropzone [type="file"] {
-    cursor: pointer;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    #dropzone div {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    #dropzone img {
+        border-radius: 5px;
+        vertical-align: middle;
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    #dropzone [type="file"] {
+        cursor: pointer;
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    .image-info{
+        float: right;
+
+        label{
+            color: white;
+            opacity: 0.7;
+        }
+
+        input[type='text']{
+            background: rgba(255,255,255,.1);
+            border: 2px solid rgba(255,255,255,.5);
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+            transition: 0.3s;
+
+            &:focus{
+                border-color: white;
+                outline: 0;
+                background: rgba(255,255,255,.2);
+            }
+        }
+
+
+        input[type='submit']{
+            margin-top: 15px;
+            width: calc(100% - 40px);
+        }
+        //display: none;
+    }
+
 }
