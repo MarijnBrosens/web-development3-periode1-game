@@ -19,24 +19,11 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        if(Auth::user())
-        {
+        $user = Auth::user();
 
-            $userVotes = Auth::user()->votes()->where('voted','=',1)->get()->toArray(); // foto's waarop ik gevote heb
+        $photos = Photo::where('user_id','=',$user->id)->get();
 
-            $photos = Photo::leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
-                ->select(
-                    'photos.*',
-                    DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count'),
-                    DB::raw('(SELECT votes.voted FROM votes WHERE photo_id=photos.id AND user_id='.Auth::user()->id.') AS user_voted'),
-                    'votes.voted'
-                )
-                ->where('photos.user_id' , '=' ,Auth::user()->id)
-                ->groupBy('photos.id')
-                ->get();
-
-            return view('home.index', array('photos' => $photos));
-        }
+        return view('profile.index', array('user' => $user,'photos' => $photos));
     }
 
     /**
