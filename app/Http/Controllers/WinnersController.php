@@ -25,15 +25,32 @@ class WinnersController extends Controller
      */
     public function index()
     {
-
-
-        $userVotes = Auth::user()->votes()->where('voted','=',1)->get()->toArray();
-        $photo = Photo::first()->votes->toArray();
-
-        dd($userVotes);
         //dd($photo[0]['id']);
 
-        /*$votes = User::join('photos','photos.user_id','=','users.id')
+        $periods = Period::All();
+
+        foreach($periods as $p){
+
+            $groups[$p->id] = Photo::WithVotesAndUsers()
+                ->groupBy('image')
+                ->orderBy('period_id','desc')
+                ->orderBy('vote_count','desc')
+                ->where('period_id','=',$p->id)
+                ->limit(3)
+                ->get();
+        }
+
+
+        //dd(Photo::WithVotes()->get()->groupBy('period_id'));
+
+        /*dd(Photo::with('votes')
+            ->join('users', 'photos.user_id', '=', 'users.id')
+            //->select('users.firstname', 'photos.*')
+            ->get()->sortByDesc(function($query) {
+                return $query->votes->count();
+            })->groupBy('period_id'));
+
+        $votes = User::join('photos','photos.user_id','=','users.id')
             ->join( 'votes', 'votes.photo_id', '=', 'photos.id' )
             ->join( 'periods', 'periods.id', '=','photos.period_id')
             ->select(
@@ -43,10 +60,12 @@ class WinnersController extends Controller
             )
             ->where('end_date','<',Carbon::now())
             ->orderBy('vote_count','desc')
-            ->get();
+            ->get();*/
 
-        dd($votes , $period);
-        */
+        //dd($votes);
+
+        return view('winners.index', array('winners' => $groups, 'periods' => $periods));
+
     }
 
     /**

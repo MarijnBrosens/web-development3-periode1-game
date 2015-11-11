@@ -21,6 +21,9 @@ class ProfileController extends Controller
     {
         if(Auth::user())
         {
+
+            $userVotes = Auth::user()->votes()->where('voted','=',1)->get()->toArray(); // foto's waarop ik gevote heb
+
             $photos = Photo::leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
                 ->select(
                     'photos.*',

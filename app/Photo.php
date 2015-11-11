@@ -38,8 +38,17 @@ class Photo extends Model
         }
     }
 
-
-
+    public function scopeWithVotesAndUsers($query)
+    {
+        $query
+            ->join('users','users.id','=','photos.user_id')
+            ->leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
+            ->select(
+                'users.*',
+                'photos.*',
+                DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count')
+            );
+    }
 
     public function period()
     {
