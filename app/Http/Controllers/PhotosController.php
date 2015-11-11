@@ -32,71 +32,10 @@ class PhotosController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * upload a photo
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
     public function postPhoto(photoRequest $request)
     {
         $period = Period::Active()->firstOrFail();
@@ -109,8 +48,6 @@ class PhotosController extends Controller
 
         $photo->user_id = Auth::id();
         $photo->period_id  = $period->id;
-
-        //dd($request->file('image'));
 
         if($request->hasFile('image')) {
             $file           = $request->file('image');
@@ -137,11 +74,14 @@ class PhotosController extends Controller
 
         $photo->save();
 
-        //Session::flash('flash_message', 'Evenement succesvol toegevoegd.');
-
         return redirect()->back();
     }
 
+    /**
+     * toggle a vote
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function postVote(voteRequest $request)
     {
         $entry = Vote::where('user_id', Auth::user()->id)->where( 'photo_id', (int)$request->input('id') )->first();
@@ -169,6 +109,11 @@ class PhotosController extends Controller
         return $this->getPhotos(1);
     }
 
+    /**
+     * get partial full or partial photos view
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getPhotos( $partial )
     {
         $period = Period::Active()->first();
@@ -187,29 +132,5 @@ class PhotosController extends Controller
         } else {
             return view('home.index', array('period' => $period,'pastPeriod' => $pastPeriod,'nextPeriod' => $nextPeriod));
         }
-
-/*
-        if(Auth::user())
-        {
-            $query = Photo::leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
-                ->select(
-                    'photos.*',
-                    DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count'),
-                    DB::raw('(SELECT votes.voted FROM votes WHERE photo_id=photos.id AND user_id='.Auth::user()->id.') AS user_voted'),
-                    'votes.voted'
-                );
-        } else {
-            $query = Photo::leftJoin( 'votes', 'votes.photo_id', '=', 'photos.id' )
-                ->select(
-                    'photos.*',
-                    DB::raw('(SELECT COUNT(voted) FROM votes WHERE voted=1 AND photo_id=photos.id)  AS vote_count')
-                );
-
-        }
-
-            $photos = $query
-                ->groupBy('photos.id')
-                ->where('period_id','=', $period->id)
-                ->get();*/
     }
 }
