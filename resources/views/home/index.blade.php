@@ -28,7 +28,7 @@
 
                 <h1 class="period-title">Winners</h1>
 
-                <ul class="home--winners">
+                <ul id="isotopeGrid" class="grid">
 
 
                     @foreach($periods as $period)
@@ -41,8 +41,16 @@
 
                                 @foreach($winners[$period->id] as $winner)
 
-                                    <li>
-                                        <p>{{$winner->firstname}} {{$winner->lastname}}</p>
+                                    <li class="card item">
+
+                                        <img src="img/{{$winner->thumb}}" alt="">
+                                        <div class="overlay"></div>
+
+                                        <div class="info">
+                                            <h3>{{$winner->title}}</h3>
+                                            <p>{{$winner->firstname}} {{$winner->lastname}}</p>
+                                        </div>
+
                                     </li>
 
                                 @endforeach
