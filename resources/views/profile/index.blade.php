@@ -7,6 +7,9 @@
     <header class="header">
 
         <div class="header--content">
+            <div class="logo">
+                <img src="img/logo-transparant-yellow.png" alt="logo jack wolfskin">
+            </div>
             <h1>{{$user->firstname}} {{$user->lastname}}</h1>
             <p>{{$user->email}}</p>
             <p>{{$user->address}} - {{$user->zip}} {{$user->city}}</p>
@@ -52,5 +55,5 @@
         @endif
 
     </main>
-    
+
 @stop

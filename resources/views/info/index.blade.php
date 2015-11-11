@@ -8,6 +8,10 @@
 
         <div class="header--content page-info">
 
+            <div class="logo">
+                <img src="img/logo-transparant-yellow.png" alt="logo jack wolfskin">
+            </div>
+
             <h1>game info</h1>
             <hr>
             <p class="game-info">
