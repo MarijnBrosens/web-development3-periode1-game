@@ -63,12 +63,18 @@
 
                 </ul>
 
-            @else
-
-                <h1>no winners avilable</h1>
-
             @endif
 
     </main>
+
+    @if($period || count($winners))
+
+        @if(count($photos) || count($winners))
+
+            @include('partials.footer')
+
+        @endif
+
+    @endif
 
 @stop

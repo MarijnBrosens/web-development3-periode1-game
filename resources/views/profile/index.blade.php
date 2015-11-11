@@ -15,10 +15,14 @@
             <p>{{$user->address}} - {{$user->zip}} {{$user->city}}</p>
         </div>
 
-        <div class="arrow">
-            <span>scroll</span>
-            <i class="ion-ios-arrow-down"></i>
-        </div>
+        @if(count($photos))
+
+            <div class="arrow">
+                <span>scroll</span>
+                <i class="ion-ios-arrow-down"></i>
+            </div>
+
+        @endif
 
     </header>
 
@@ -55,5 +59,11 @@
         @endif
 
     </main>
+
+    @if(count($photos))
+
+        @include('partials.footer')
+
+    @endif
 
 @stop

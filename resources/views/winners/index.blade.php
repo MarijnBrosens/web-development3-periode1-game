@@ -10,12 +10,21 @@
             <div class="logo">
                 <img src="img/logo-transparant-yellow.png" alt="logo jack wolfskin">
             </div>
-            <h1>Winners</h1>
+            @if(count($winners))
+                <h1>Winners</h1>
+            @else
+                <h1>No winners available</h1>
+            @endif
         </div>
-        <div class="arrow">
-            <span>scroll</span>
-            <i class="ion-ios-arrow-down"></i>
-        </div>
+
+        @if(count($winners))
+
+            <div class="arrow">
+                <span>scroll</span>
+                <i class="ion-ios-arrow-down"></i>
+            </div>
+
+        @endif
     </header>
 
 
@@ -23,9 +32,6 @@
     <main>
 
         <div id="photos">
-
-
-
 
         @if(count($winners))
 
@@ -74,5 +80,11 @@
         </div>
 
     </main>
+
+    @if(count($winners))
+
+        @include('partials.footer')
+
+    @endif
 
 @stop
