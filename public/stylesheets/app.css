@@ -3456,6 +3456,10 @@ main {
   letter-spacing: 6px;
   color: #777; }
 
+.home--winners li {
+  padding: 10px 0;
+  text-align: center; }
+
 .page-info.header--content {
   width: 100%;
   max-width: 1000px; }

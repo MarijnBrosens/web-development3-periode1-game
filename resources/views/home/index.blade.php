@@ -24,19 +24,42 @@
 
         @endif
 
-        @if($pastPeriod)
+            @if(count($winners))
 
-            <h1>Past periods</h1>
+                <h1 class="period-title">Winners</h1>
 
-            @foreach($pastPeriod as $period)
+                <ul class="home--winners">
 
-                <h1>{{$period->title}}</h1>
-                <p>started: {{$period->start_date}}</p>
-                <p>ends: {{$period->end_date}}</p>
 
-            @endforeach
+                    @foreach($periods as $period)
 
-        @endif
+                        @if($winners[$period->id])
+
+                            <section class="clearfix">
+
+                                <h1 class="period-title">{{$period->title}}</h1>
+
+                                @foreach($winners[$period->id] as $winner)
+
+                                    <li>
+                                        <p>{{$winner->firstname}} {{$winner->lastname}}</p>
+                                    </li>
+
+                                @endforeach
+
+                            </section>
+
+                        @endif
+
+                    @endforeach
+
+                </ul>
+
+            @else
+
+                <h1>no winners avilable</h1>
+
+            @endif
 
     </main>
 

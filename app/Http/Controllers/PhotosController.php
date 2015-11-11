@@ -120,6 +120,21 @@ class PhotosController extends Controller
         $pastPeriod = Period::Past()->get();
         $nextPeriod = Period::Future()->first();
 
+        $periods = Period::Past()->orderBy('id','desc')->get();
+        $groups[] = '';
+
+        foreach($periods as $p){
+
+            $groups[$p->id] = Photo::WithVotesAndUsers()
+                ->groupBy('image')
+                ->orderBy('period_id','desc')
+                ->orderBy('vote_count','desc')
+                ->where('period_id','=',$p->id)
+                ->limit(3)
+                ->get();
+        }
+
+
         if($period){
             $photos = Photo::WithVotes()->groupBy('photos.id')->where('period_id','=', $period->id)->get();
 
@@ -128,9 +143,9 @@ class PhotosController extends Controller
                 return (String)view('partials.photos', array('photos' => $photos));
             }
 
-            return view('home.index', array('photos' => $photos,'period' => $period,'pastPeriod' => $pastPeriod,'nextPeriod' => $nextPeriod));
+            return view('home.index', array('photos' => $photos,'period' => $period,'periods' => $periods,'winners' => $groups));
         } else {
-            return view('home.index', array('period' => $period,'pastPeriod' => $pastPeriod,'nextPeriod' => $nextPeriod));
+            return view('home.index', array('period' => $period,'periods' => $periods,'winners' => $groups));
         }
     }
 }
