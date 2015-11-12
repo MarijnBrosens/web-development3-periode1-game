@@ -8,7 +8,7 @@
 
     <main>
 
-        @if( $period )
+        @if( count($period) )
 
             @if( count($photos) )
 

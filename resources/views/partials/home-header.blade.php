@@ -21,6 +21,10 @@
 
                     <h3>{{$nextPeriod->title}} wil start <time datetime="{{$nextPeriod->start_date}}" class="date-h"></time></h3>
 
+                @else
+
+                    <h3>There are no future periods planned</h3>
+
                 @endif
 
             @endif

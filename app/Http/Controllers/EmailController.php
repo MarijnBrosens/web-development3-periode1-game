@@ -22,10 +22,12 @@ class EmailController extends Controller
     {
 
         $data = ['name' => 'examplename'];
+        $date = "2015-11-12 04:54:28";
 
-        $date = Carbon::now()->addMinutes(15);
-
-        return $date;
+        Mail::later($date, 'emails.reminder', $data, function ($message) {
+            $message->from('winner@webdevelopment.be','later');
+            $message->to('marijnbrosens16@gmail.com')->subject('testmail');
+        });
 
        /* Mail::send('emails.reminder', $data , function ($message) {
             $message->from('winner@webdevelopment.be','wopla');

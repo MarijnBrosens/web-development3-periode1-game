@@ -43,5 +43,5 @@ Route::group( ['middleware' => 'auth'] , function()
 Route::group( ['middleware' => 'admin'] , function()
 {
     Route::resource( '/admin/users', 'UsersController', ['only' => ['index','destroy']] );
-    Route::get('/email', 'EmailController@sendEmailReminder');
+    Route::get('/email/later', 'EmailController@sendEmailReminder');
 });

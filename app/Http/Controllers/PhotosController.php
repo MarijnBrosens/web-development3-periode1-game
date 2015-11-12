@@ -119,6 +119,7 @@ class PhotosController extends Controller
         $period = Period::Active()->first();
         $pastPeriod = Period::Past()->get();
         $nextPeriod = Period::Future()->first();
+        $photos = null;
 
         $periods = Period::Past()->orderBy('id','desc')->get();
         $groups = null;
@@ -147,7 +148,7 @@ class PhotosController extends Controller
 
             return view('home.index', array('photos' => $photos,'period' => $period,'periods' => $periods,'winners' => $groups,'nextPeriod' => $nextPeriod));
         } else {
-            return view('home.index', array('period' => $period,'periods' => $periods,'winners' => $groups,'nextPeriod' => $nextPeriod));
+            return view('home.index', array('photos' => $photos,'period' ,'period' => $period,'periods' => $periods,'winners' => $groups,'nextPeriod' => $nextPeriod));
         }
     }
 }
