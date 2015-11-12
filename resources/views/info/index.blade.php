@@ -16,7 +16,7 @@
             <hr>
             <p class="game-info">
                 Share your best spots.
-                the owner of the photo that has the most likes in each period wins a full <a href="http://www.jack-wolfskin.com/search?q=whiteline">whiteline</a> collection.            </p>
+                the 3 owners of the most liked photos in each period win a full <a href="http://www.jack-wolfskin.com/search?q=whiteline">whiteline</a> collection.            </p>
 
             <h1>Active period: {{$period->title}}</h1>
             <hr>

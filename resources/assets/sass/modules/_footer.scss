@@ -1,7 +1,7 @@
 footer{
     margin-top: 100px;
     height: 300px;
-    background: url("https://images.unsplash.com/photo-1447110247212-4b3cd4e0881a?ixlib=rb-0.3.5&q=80&fm=jpg&s=f9ca9f1912c78831e806a41408d85227");
+    background-image: url("../img/bg-desktop.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -51,5 +51,21 @@ footer{
             img{ width: 100%; }
         }
 
+    }
+
+    @media (max-width: 1500px){
+        background-image: url("../img/bg-1500.jpg");
+    }
+
+    @media (max-width: 1000px){
+        background-image: url("../img/bg-1000.jpg");
+    }
+
+    @media (max-width: 800px){
+        background-image: url("../img/bg-800.jpg");
+    }
+
+    @media (max-width: 640px){
+        background-image: url("../img/bg-640.jpg");
     }
 }

@@ -21,4 +21,15 @@
             &:hover{ color: $brand-color; background: white; }
         }
     }
+
+    @media (max-width: 1000px){
+        right: auto;
+        width: 100%;
+        text-align: center;
+
+        li{
+            float: none;
+            display: inline-block;
+        }
+    }
 }
