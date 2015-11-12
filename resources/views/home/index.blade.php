@@ -8,9 +8,9 @@
 
     <main>
 
-        @if($period)
+        @if( $period )
 
-            @if(count($photos))
+            @if( count($photos) )
 
                 <h1 class="period-title">{{$period->title}}</h1>
 
@@ -24,7 +24,8 @@
 
         @endif
 
-            @if(count($winners))
+
+            @if( count($winners) )
 
                 <h1 class="period-title">Winners</h1>
 
@@ -67,7 +68,7 @@
 
     </main>
 
-    @if($period || count($winners))
+    @if($period)
 
         @if(count($photos) || count($winners))
 

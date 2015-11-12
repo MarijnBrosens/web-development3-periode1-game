@@ -16,12 +16,16 @@
             <hr>
             <p class="game-info">
                 Share your best spots.
-                the 3 owners of the most liked photos in each period win a full <a href="http://www.jack-wolfskin.com/search?q=whiteline">whiteline</a> collection.            </p>
+                the 3 owners of the most liked photos in each period win a full <a href="http://www.jack-wolfskin.com/search?q=whiteline">whiteline</a> collection.</p>
 
-            <h1>Active period: {{$period->title}}</h1>
-            <hr>
-            <p>started: {{$period->start_date}}</p>
-            <p>ends: {{$period->end_date}}</p>
+            @if($period)
+
+                <h1>Active period: {{$period->title}}</h1>
+                <hr>
+                <p>started: {{$period->start_date}}</p>
+                <p>ends: {{$period->end_date}}</p>
+
+            @endif
 
             <div class="links">
                 <a href="info/periods">ALl periods</a>

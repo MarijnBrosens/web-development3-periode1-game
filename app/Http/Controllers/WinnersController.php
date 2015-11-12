@@ -26,7 +26,7 @@ class WinnersController extends Controller
     public function index()
     {
         $periods = Period::Past()->orderBy('id','desc')->get();
-        $groups[] = '';
+        $groups = null;
 
         foreach($periods as $p){
 

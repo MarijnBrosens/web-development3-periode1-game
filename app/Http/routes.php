@@ -17,8 +17,6 @@ Route::get('/', 'PhotosController@index');
 Route::get('/info', 'InfoController@index');
 Route::get('/info/periods', 'PeriodsController@index');
 Route::get('/info/periods/future', 'PeriodsController@future');
-
-
 Route::get('/winners', 'WinnersController@index');
 
 
@@ -45,4 +43,5 @@ Route::group( ['middleware' => 'auth'] , function()
 Route::group( ['middleware' => 'admin'] , function()
 {
     Route::resource( '/admin/users', 'UsersController', ['only' => ['index','destroy']] );
+    Route::get('/email', 'EmailController@sendEmailReminder');
 });

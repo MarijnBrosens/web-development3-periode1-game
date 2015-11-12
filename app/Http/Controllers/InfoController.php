@@ -17,7 +17,7 @@ class InfoController extends Controller
      */
     public function index()
     {
-        $period = Period::Active()->firstOrFail();
+        $period = Period::Active()->first();
 
         return view('info.index', array('period' => $period));
     }

@@ -16,7 +16,7 @@
 
             @else
 
-                <h3>No active period available</h3>
+                <h1>No active period available</h1>
                 @if( $nextPeriod )
 
                     <h3>{{$nextPeriod->title}} wil start <time datetime="{{$nextPeriod->start_date}}" class="date-h"></time></h3>
@@ -35,10 +35,14 @@
 
     </div>
 
-    <div class="arrow">
-        <span>scroll</span>
-        <i class="ion-ios-arrow-down"></i>
-    </div>
+    @if( count($winners) || $period )
+
+        <div class="arrow">
+            <span>scroll</span>
+            <i class="ion-ios-arrow-down"></i>
+        </div>
+
+    @endif
 
 
 </header>

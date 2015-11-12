@@ -30,10 +30,9 @@
 
 
     <main>
+        @if(count($winners))
 
         <div id="photos">
-
-        @if(count($winners))
 
             <ul id="isotopeGrid" class="grid">
 
@@ -71,17 +70,13 @@
 
             </ul>
 
-        @else
-
-            <h1>no winners avilable</h1>
+        </div>
 
         @endif
 
-        </div>
-
     </main>
 
-    @if(count($winners))
+    @if( count($winners) )
 
         @include('partials.footer')
 
