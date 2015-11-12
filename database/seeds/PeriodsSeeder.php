@@ -15,26 +15,26 @@ class PeriodsSeeder extends Seeder
             [
                 'id' => 1,
                 'title' => 'Period 1',
-                'start_date' => Carbon\Carbon::now(),
-                'end_date' => Carbon\Carbon::now()->addMinute(5555555)->toDateTimeString()
+                'start_date' => Carbon\Carbon::now()->subMinutes(10)->toDateTimeString(),
+                'end_date' => Carbon\Carbon::now()
             ],
             [
                 'id' => 2,
                 'title' => 'Period 2',
-                'start_date' => Carbon\Carbon::now()->addMinute(5555555)->toDateTimeString(),
-                'end_date' => Carbon\Carbon::now()->addMinute(5555556)->toDateTimeString()
+                'start_date' => Carbon\Carbon::now(),
+                'end_date' => Carbon\Carbon::now()->addMinute(10)->toDateTimeString()
             ],
             [
                 'id' => 3,
                 'title' => 'Period 3',
-                'start_date' => Carbon\Carbon::now()->addMinute(5555556)->toDateTimeString(),
-                'end_date' => Carbon\Carbon::now()->addMinute(5555557)->toDateTimeString()
+                'start_date' => Carbon\Carbon::now()->addMinute(10)->toDateTimeString(),
+                'end_date' => Carbon\Carbon::now()->addMinute(20)->toDateTimeString()
             ],
             [
                 'id' => 4,
                 'title' => 'Period 4',
-                'start_date' => Carbon\Carbon::now()->addMinute(5555557)->toDateTimeString(),
-                'end_date' => Carbon\Carbon::now()->addMinute(5555558)->toDateTimeString()
+                'start_date' => Carbon\Carbon::now()->addMinute(20)->toDateTimeString(),
+                'end_date' => Carbon\Carbon::now()->addMinute(30)->toDateTimeString()
             ],
         ];
 
