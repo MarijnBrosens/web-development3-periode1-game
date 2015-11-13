@@ -2,7 +2,7 @@
 
 ### Installation:
 
-1. https://github.com/MarijnBrosens/web-development3-periode1-game.git
+1. git clone https://github.com/MarijnBrosens/web-development3-periode1-game.git
 2. composer install
 3. composer update
 4. change document root of server to /public folder
