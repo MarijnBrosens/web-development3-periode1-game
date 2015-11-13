@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Period;
+use App\Photo;
 
 class EmailController extends Controller
 {
@@ -21,13 +23,26 @@ class EmailController extends Controller
     public function sendEmailReminder()
     {
 
-        $data = ['name' => 'examplename'];
-        $date = "2015-11-12 04:54:28";
+        $period = Period::Past()->orderBy('id','desc')->first();
 
-        Mail::later($date, 'emails.reminder', $data, function ($message) {
-            $message->from('winner@webdevelopment.be','later');
-            $message->to('marijnbrosens16@gmail.com')->subject('testmail');
-        });
+
+            $periodtitle = $period->title;
+
+            $winners = Photo::WithVotesAndUsers()
+                ->groupBy('image')
+                ->orderBy('period_id','desc')
+                ->orderBy('vote_count','desc')
+                ->where('period_id','=', $period->id )
+                ->limit(3)
+                ->get();
+
+            $data =  ['winners' => $winners, 'periodtitle' => $periodtitle];
+
+            Mail::send('emails.reminder', $data , function ($message) {
+                $message->from('winner@webdevelopment.be', 'winners' );
+                $message->to('marijnbrosens16@gmail.com')->subject('testmail');
+            });
+
 
        /* Mail::send('emails.reminder', $data , function ($message) {
             $message->from('winner@webdevelopment.be','wopla');
