@@ -1,4 +1,5 @@
-<h1>winners in {{$periodtitle}}</h1>
+<h1>winners in {{$period->title}}</h1>
+<h3>{{$period->start_date}} --- {{$period->end_date}}</h3>
 
 @foreach($winners as $index => $winner)
 

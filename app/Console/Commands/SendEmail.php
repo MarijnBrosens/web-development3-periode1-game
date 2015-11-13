@@ -48,8 +48,6 @@ class SendEmail extends Command
 
         if( ( Carbon::now() >= $perioddate ) && ( Carbon::now() <= $perioddate->addMinute() ) )
         {
-            $periodtitle = $period->title;
-
             $winners = Photo::WithVotesAndUsers()
                 ->groupBy('image')
                 ->orderBy('period_id','desc')
@@ -58,7 +56,7 @@ class SendEmail extends Command
                 ->limit(3)
                 ->get();
 
-            $data =  ['winners' => $winners, 'periodtitle' => $periodtitle];
+            $data =  ['winners' => $winners, 'period' => $period];
 
             Mail::send('emails.reminder', $data , function ($message) {
                 $message->from('winner@webdevelopment.be', 'winners' );
