@@ -1,8 +1,19 @@
 ## Examen web development periode 1 (game)
 
+### Installation:
+
+1. https://github.com/MarijnBrosens/web-development3-periode1-game.git
+2. composer install
+3. composer update
+4. change document root of server to /public folder
+5. fill in .env file and add mailgun info
+6. run: php artisan migrate
+7. run: php artisan db:seed
+8. run: sudo cron start
+9. if you change styling run gulp file and install npm
 
 
-## Laravel PHP Framework
+### Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
@@ -14,15 +25,15 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
 
-## Official Documentation
+### Official Documentation
 
 Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
 
-## Contributing
+### Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+### Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
